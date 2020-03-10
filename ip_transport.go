@@ -20,15 +20,6 @@ import (
 	"github.com/MrEhbr/hc/util"
 	"github.com/brutella/dnssd"
 	"github.com/xiam/to"
-	"hc/accessory"
-	"hc/characteristic"
-	"hc/db"
-	"hc/event"
-	"hc/hap"
-	"hc/hap/endpoint"
-	"hc/hap/http"
-	"hc/log"
-	"hc/util"
 )
 
 var _ Transport = &ipTransport{}
