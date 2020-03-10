@@ -2,8 +2,8 @@ package rtp
 
 import (
 	"fmt"
-	"github.com/brutella/hc/characteristic"
-	"github.com/brutella/hc/tlv8"
+	"github.com/MrEhbr/hc/characteristic"
+	"github.com/MrEhbr/hc/tlv8"
 	"testing"
 )
 

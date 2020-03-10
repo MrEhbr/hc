@@ -2,7 +2,7 @@
 package service
 
 import (
-	"github.com/brutella/hc/characteristic"
+	"github.com/MrEhbr/hc/characteristic"
 )
 
 const TypeDoor = "81"

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/brutella/hc/util"
+	"github.com/MrEhbr/hc/util"
 )
 
 var config = &Config{

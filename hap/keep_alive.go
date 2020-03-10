@@ -3,7 +3,7 @@ package hap
 import (
 	"bytes"
 	gocontext "context"
-	"github.com/brutella/hc/log"
+	"github.com/MrEhbr/hc/log"
 	"io/ioutil"
 	"time"
 )

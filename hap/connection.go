@@ -2,8 +2,8 @@ package hap
 
 import (
 	"bytes"
-	"github.com/brutella/hc/crypto"
-	"github.com/brutella/hc/log"
+	"github.com/MrEhbr/hc/crypto"
+	"github.com/MrEhbr/hc/log"
 	"net"
 	"time"
 

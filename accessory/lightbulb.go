@@ -1,7 +1,7 @@
 package accessory
 
 import (
-	"github.com/brutella/hc/service"
+	"github.com/MrEhbr/hc/service"
 )
 
 type Lightbulb struct {
