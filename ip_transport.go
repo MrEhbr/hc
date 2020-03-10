@@ -115,9 +115,14 @@ func NewIPTransport(config Config, a *accessory.Accessory, as ...*accessory.Acce
 		stopped:   make(chan struct{}),
 	}
 
-	t.addAccessory(a)
+	if err := t.addAccessory(a); err != nil {
+		return nil, err
+	}
+
 	for _, a := range as {
-		t.addAccessory(a)
+		if err := t.addAccessory(a); err != nil {
+			return nil, err
+		}
 	}
 
 	// Users can only pair discoverable accessories
@@ -126,13 +131,17 @@ func NewIPTransport(config Config, a *accessory.Accessory, as ...*accessory.Acce
 	}
 
 	cfg.categoryId = uint8(t.container.AccessoryType())
-	cfg.updateConfigHash(t.container.ContentHash())
-	cfg.save(storage)
+	t.updateConfig()
 
 	// Listen for events to update mDNS txt records
 	t.emitter.AddListener(t)
 
 	return t, err
+}
+
+func (t *ipTransport) updateConfig() {
+	t.config.updateConfigHash(t.container.ContentHash())
+	t.config.save(t.storage)
 }
 
 func (t *ipTransport) Start() {
@@ -165,7 +174,7 @@ func (t *ipTransport) Start() {
 
 	mdnsStop := make(chan struct{})
 	go func() {
-		t.responder.Respond(mdnsCtx)
+		_ = t.responder.Respond(mdnsCtx)
 		log.Debug.Println("mdns responder stopped")
 		mdnsStop <- struct{}{}
 	}()
@@ -187,7 +196,7 @@ func (t *ipTransport) Start() {
 	defer serverCancel()
 	serverStop := make(chan struct{})
 	go func() {
-		s.ListenAndServe(serverCtx)
+		_ = s.ListenAndServe(serverCtx)
 		log.Debug.Println("server stopped")
 		serverStop <- struct{}{}
 	}()
@@ -214,7 +223,7 @@ func (t *ipTransport) Stop() <-chan struct{} {
 // qrterminal.Generate(uri, qrterminal.L, os.Stdout)
 // ```
 func (t *ipTransport) XHMURI() (string, error) {
-	return t.config.XHMURI(util.SetupFlagIP)
+	return t.config.xhmUri(util.SetupFlagIP)
 }
 
 // isPaired returns true when the transport is already paired
@@ -236,9 +245,19 @@ func (t *ipTransport) updateMDNSReachability() {
 		t.handle.UpdateText(t.config.txtRecords(), t.responder)
 	}
 }
+func (t *ipTransport) AddAccessory(a *accessory.Accessory) error {
+	if err := t.addAccessory(a); err != nil {
+		return err
+	}
 
-func (t *ipTransport) addAccessory(a *accessory.Accessory) {
-	t.container.AddAccessory(a)
+	t.updateConfig()
+	return nil
+}
+
+func (t *ipTransport) addAccessory(a *accessory.Accessory) error {
+	if err := t.container.AddAccessory(a); err != nil {
+		return err
+	}
 
 	for _, s := range a.Services {
 		for _, c := range s.Characteristics {
@@ -260,6 +279,13 @@ func (t *ipTransport) addAccessory(a *accessory.Accessory) {
 			c.OnValueUpdate(onChange)
 		}
 	}
+
+	return nil
+}
+
+func (t *ipTransport) RemoveAccessory(a *accessory.Accessory) {
+	t.container.RemoveAccessory(a)
+	t.updateConfig()
 }
 
 func (t *ipTransport) notifyListener(a *accessory.Accessory, c *characteristic.Characteristic, except net.Conn) {
@@ -276,11 +302,11 @@ func (t *ipTransport) notifyListener(a *accessory.Accessory, c *characteristic.C
 		// Write response into buffer to replace HTTP protocol
 		// specifier with EVENT as required by HAP
 		var buffer = new(bytes.Buffer)
-		resp.Write(buffer)
-		bytes, err := ioutil.ReadAll(buffer)
-		bytes = hap.FixProtocolSpecifier(bytes)
-		log.Debug.Printf("%s <- %s", conn.RemoteAddr(), string(bytes))
-		conn.Write(bytes)
+		_ = resp.Write(buffer)
+		bytesData, err := ioutil.ReadAll(buffer)
+		bytesData = hap.FixProtocolSpecifier(bytesData)
+		log.Debug.Printf("%s <- %s", conn.RemoteAddr(), string(bytesData))
+		_, _ = conn.Write(bytesData)
 	}
 }
 

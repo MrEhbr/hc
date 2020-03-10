@@ -3,9 +3,7 @@ package hc
 import (
 	"crypto/sha512"
 	"encoding/base64"
-	"errors"
 	"fmt"
-	"net"
 	"reflect"
 
 	"github.com/brutella/hc/util"
@@ -84,7 +82,7 @@ func (cfg *Config) setupHash() string {
 	return encoded
 }
 
-func (cfg *Config) XHMURI(flag util.SetupFlag) (string, error) {
+func (cfg *Config) xhmUri(flag util.SetupFlag) (string, error) {
 	flags := []util.SetupFlag{flag}
 	return util.XHMURI(cfg.Pin, cfg.SetupId, cfg.categoryId, flags)
 }
@@ -106,9 +104,9 @@ func (cfg *Config) load(storage util.Storage) {
 
 // save stores the id, version and config
 func (cfg *Config) save(storage util.Storage) {
-	storage.Set("uuid", []byte(cfg.id))
-	storage.Set("version", []byte(fmt.Sprintf("%d", cfg.version)))
-	storage.Set("configHash", []byte(cfg.configHash))
+	_ = storage.Set("uuid", []byte(cfg.id))
+	_ = storage.Set("version", []byte(fmt.Sprintf("%d", cfg.version)))
+	_ = storage.Set("configHash", cfg.configHash)
 }
 
 // merge updates the StoragePath, Pin, Port and IP fields of the receiver from other.
@@ -142,33 +140,4 @@ func (cfg *Config) updateConfigHash(hash []byte) {
 	}
 
 	cfg.configHash = hash
-}
-
-// getFirstLocalIPAddr returns the first available IP address of the local machine
-// This is a fix for Beaglebone Black where net.LookupIP(hostname) return no IP address.
-func getFirstLocalIPAddr() (net.IP, error) {
-	addrs, err := net.InterfaceAddrs()
-	if err != nil {
-		return nil, err
-	}
-
-	for _, addr := range addrs {
-		var ip net.IP
-		switch v := addr.(type) {
-		case *net.IPNet:
-			ip = v.IP
-		case *net.IPAddr:
-			ip = v.IP
-		}
-		if ip == nil || ip.IsLoopback() || ip.IsUnspecified() {
-			continue
-		}
-		ip = ip.To4()
-		if ip == nil {
-			continue // not an ipv4 address
-		}
-		return ip, nil
-	}
-
-	return nil, errors.New("Could not determine ip address")
 }
