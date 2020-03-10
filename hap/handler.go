@@ -1,7 +1,7 @@
 package hap
 
 import (
-	"github.com/brutella/hc/util"
+	"hc/util"
 	"io"
 	"net"
 	"net/url"

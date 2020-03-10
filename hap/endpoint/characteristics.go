@@ -1,8 +1,8 @@
 package endpoint
 
 import (
-	"github.com/brutella/hc/hap"
-	"github.com/brutella/hc/log"
+	"hc/hap"
+	"hc/log"
 	"io"
 	"io/ioutil"
 	"net/http"

@@ -3,7 +3,7 @@ package swift
 import (
 	"bytes"
 	"fmt"
-	"github.com/brutella/hc/gen"
+	"hc/gen"
 	"text/template"
 )
 

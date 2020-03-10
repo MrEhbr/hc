@@ -1,7 +1,7 @@
 package hc
 
 import (
-	"github.com/brutella/hc/accessory"
+	"hc/accessory"
 )
 
 // Transport provides accessories over a network.

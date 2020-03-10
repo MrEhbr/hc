@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/brutella/hc/characteristic"
+	"hc/characteristic"
 
 	"encoding/json"
 )

@@ -1,13 +1,13 @@
 package golang
 
 import (
-	"github.com/brutella/hc/gen"
+	"hc/gen"
 	"os"
 	"path/filepath"
 )
 
 var (
-	libPath                = os.ExpandEnv("$GOPATH/src/github.com/brutella/hc")
+	libPath                = os.ExpandEnv("$GOPATH/src/hc")
 	ServiceLocalDir        = filepath.Join(libPath, "service")
 	CharacteristicLocalDir = filepath.Join(libPath, "characteristic")
 	ServiceDir             = "service"

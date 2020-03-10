@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/brutella/hc/util"
 	"github.com/xiam/to"
+	"hc/util"
 )
 
 // Config holds configuration options.

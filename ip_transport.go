@@ -10,16 +10,16 @@ import (
 	"sync"
 
 	"github.com/brutella/dnssd"
-	"github.com/brutella/hc/accessory"
-	"github.com/brutella/hc/characteristic"
-	"github.com/brutella/hc/db"
-	"github.com/brutella/hc/event"
-	"github.com/brutella/hc/hap"
-	"github.com/brutella/hc/hap/endpoint"
-	"github.com/brutella/hc/hap/http"
-	"github.com/brutella/hc/log"
-	"github.com/brutella/hc/util"
 	"github.com/xiam/to"
+	"hc/accessory"
+	"hc/characteristic"
+	"hc/db"
+	"hc/event"
+	"hc/hap"
+	"hc/hap/endpoint"
+	"hc/hap/http"
+	"hc/log"
+	"hc/util"
 )
 
 var _ Transport = &ipTransport{}
