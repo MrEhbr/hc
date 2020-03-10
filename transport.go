@@ -6,7 +6,7 @@ import (
 
 // Transport provides accessories over a network.
 type Transport interface {
-	AddAccessory(a *accessory.Accessory)
+	AddAccessory(a *accessory.Accessory) error
 	RemoveAccessory(a *accessory.Accessory)
 	// Start starts the transport
 	Start()

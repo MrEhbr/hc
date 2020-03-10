@@ -22,6 +22,8 @@ import (
 	"github.com/xiam/to"
 )
 
+var _ Transport = &ipTransport{}
+
 type ipTransport struct {
 	CameraSnapshotReq func(width, height uint) (*image.Image, error)
 
