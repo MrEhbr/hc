@@ -2,7 +2,7 @@
 package service
 
 import (
-	"github.com/MrEhbr/hc/characteristic"
+	"github.com/brutella/hc/characteristic"
 )
 
 const TypeOutlet = "47"

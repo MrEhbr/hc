@@ -1,7 +1,7 @@
 package accessory
 
 import (
-	"github.com/MrEhbr/hc/service"
+	"github.com/brutella/hc/service"
 )
 
 type Outlet struct {

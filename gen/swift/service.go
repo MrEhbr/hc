@@ -3,8 +3,9 @@ package swift
 import (
 	"bytes"
 	"fmt"
-	"github.com/MrEhbr/hc/gen"
 	"text/template"
+
+	"github.com/brutella/hc/gen"
 )
 
 func ServiceEnumDecl(metadata gen.Metadata) ([]byte, error) {

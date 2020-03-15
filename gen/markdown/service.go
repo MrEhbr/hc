@@ -2,9 +2,10 @@ package markdown
 
 import (
 	"bytes"
-	"github.com/MrEhbr/hc/gen"
-	"github.com/MrEhbr/hc/gen/golang"
 	"text/template"
+
+	"github.com/brutella/hc/gen"
+	"github.com/brutella/hc/gen/golang"
 )
 
 const ServicesTemplate = `| Service | Characteristics | ID

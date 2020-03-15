@@ -3,7 +3,8 @@ package db
 import (
 	"encoding/hex"
 	"encoding/json"
-	"github.com/MrEhbr/hc/util"
+
+	"github.com/brutella/hc/util"
 )
 
 // Database stores entities

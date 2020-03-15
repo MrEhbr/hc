@@ -1,8 +1,9 @@
 package util
 
 import (
-	"github.com/MrEhbr/hc/accessory"
 	"testing"
+
+	"github.com/brutella/hc/accessory"
 )
 
 func TestBadSetupCode(t *testing.T) {

@@ -1,9 +1,10 @@
 package rtp
 
 import (
-	"github.com/MrEhbr/hc/characteristic"
-	"github.com/MrEhbr/hc/tlv8"
 	"testing"
+
+	"github.com/brutella/hc/characteristic"
+	"github.com/brutella/hc/tlv8"
 )
 
 func TestSetupEndpoints(t *testing.T) {

@@ -1,10 +1,11 @@
 package pair
 
 import (
-	"github.com/MrEhbr/hc/db"
-	"github.com/MrEhbr/hc/hap"
-	"github.com/MrEhbr/hc/util"
 	"testing"
+
+	"github.com/brutella/hc/db"
+	"github.com/brutella/hc/hap"
+	"github.com/brutella/hc/util"
 )
 
 // Tests the pairing setup

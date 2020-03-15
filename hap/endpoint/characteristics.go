@@ -1,12 +1,13 @@
 package endpoint
 
 import (
-	"github.com/MrEhbr/hc/hap"
-	"github.com/MrEhbr/hc/log"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"sync"
+
+	"github.com/brutella/hc/hap"
+	"github.com/brutella/hc/log"
 )
 
 // Characteristics handles the /characteristics endpoint

@@ -1,9 +1,10 @@
 package endpoint
 
 import (
-	"github.com/MrEhbr/hc/hap"
-	"github.com/MrEhbr/hc/log"
 	"net/http"
+
+	"github.com/brutella/hc/hap"
+	"github.com/brutella/hc/log"
 )
 
 // Identify handles the unencrypted /identify endpoint by calling IdentifyAccessory() on the IdentifyHandler

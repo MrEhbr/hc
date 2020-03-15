@@ -1,8 +1,8 @@
 package pair
 
 import (
-	"github.com/MrEhbr/hc/crypto/curve25519"
-	"github.com/MrEhbr/hc/crypto/hkdf"
+	"github.com/brutella/hc/crypto/curve25519"
+	"github.com/brutella/hc/crypto/hkdf"
 )
 
 // VerifySession holds keys to encrypt a tcp connection.

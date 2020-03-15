@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"github.com/MrEhbr/hc/crypto/chacha20poly1305"
-	"github.com/MrEhbr/hc/crypto/hkdf"
 	"io"
+
+	"github.com/brutella/hc/crypto/chacha20poly1305"
+	"github.com/brutella/hc/crypto/hkdf"
 )
 
 // secureSession provide a secure session by encrypting and decrypting data

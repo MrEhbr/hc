@@ -1,13 +1,14 @@
 package endpoint
 
 import (
-	"github.com/MrEhbr/hc/event"
-	"github.com/MrEhbr/hc/hap"
-	"github.com/MrEhbr/hc/hap/pair"
-	"github.com/MrEhbr/hc/log"
-	"github.com/MrEhbr/hc/util"
 	"io"
 	"net/http"
+
+	"github.com/brutella/hc/event"
+	"github.com/brutella/hc/hap"
+	"github.com/brutella/hc/hap/pair"
+	"github.com/brutella/hc/log"
+	"github.com/brutella/hc/util"
 )
 
 // Pairing handles the /pairings endpoint.

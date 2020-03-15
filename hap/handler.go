@@ -1,10 +1,11 @@
 package hap
 
 import (
-	"github.com/MrEhbr/hc/util"
 	"io"
 	"net"
 	"net/url"
+
+	"github.com/brutella/hc/util"
 )
 
 // A ContainerHandler abstracts request/response communication

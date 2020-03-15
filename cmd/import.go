@@ -5,21 +5,22 @@
 //
 // The metadata file is created by running the following command on OS X
 //
-//     plutil -convert json -r -o $GOPATH/src/github.com/MrEhbr/hc/gen/metadata.json /Applications/HomeKit\ Accessory\ Simulator.app/Contents/Frameworks/HAPAccessoryKit.framework/Versions/A/Resources/default.metadata.plist
+//     plutil -convert json -r -o $GOPATH/src/github.com/brutella/hc/gen/metadata.json /Applications/HomeKit\ Accessory\ Simulator.app/Contents/Frameworks/HAPAccessoryKit.framework/Versions/A/Resources/default.metadata.plist
 package main
 
 import (
 	"encoding/json"
-	"github.com/MrEhbr/hc/gen"
-	"github.com/MrEhbr/hc/gen/golang"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
+
+	"github.com/brutella/hc/gen"
+	"github.com/brutella/hc/gen/golang"
 )
 
-var LibPath = os.ExpandEnv("$GOPATH/src/github.com/MrEhbr/hc")
+var LibPath = os.ExpandEnv("$GOPATH/src/github.com/brutella/hc")
 var GenPath = filepath.Join(LibPath, "gen")
 var SvcPkgPath = filepath.Join(LibPath, "service")
 var AccPkgPath = filepath.Join(LibPath, "accessory")

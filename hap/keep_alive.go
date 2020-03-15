@@ -3,9 +3,10 @@ package hap
 import (
 	"bytes"
 	gocontext "context"
-	"github.com/MrEhbr/hc/log"
 	"io/ioutil"
 	"time"
+
+	"github.com/brutella/hc/log"
 )
 
 // KeepAlive encapsulates sending notifications with no content to all

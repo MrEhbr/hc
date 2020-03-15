@@ -1,7 +1,7 @@
 package hap
 
 import (
-	"github.com/MrEhbr/hc/accessory"
+	"github.com/brutella/hc/accessory"
 
 	"bytes"
 	"io/ioutil"
