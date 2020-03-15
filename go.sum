@@ -1,5 +1,3 @@
-github.com/MrEhbr/hc v1.3.2 h1:nXxRgdU9bxf28LZiS0XNprTkYg0om2cNvRr2/tWC/Xo=
-github.com/MrEhbr/hc v1.3.2/go.mod h1:hsVMqu9dW97kW61vsiZuEGAW5uf2HFWNsenJrv4X2MM=
 github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 h1:w1UutsfOrms1J05zt7ISrnJIXKzwaspym5BTKGx93EI=
 github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412/go.mod h1:WPjqKcmVOxf0XSf3YxCJs6N6AOSrOx3obionmG7T0y0=
 github.com/brutella/dnssd v1.1.1 h1:Ar5ytE2Z9x5DTmuNnASlMTBpcQWQLm9ceHb326s0ykg=
